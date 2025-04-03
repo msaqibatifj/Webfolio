@@ -33,7 +33,7 @@ hr {
     top: 0;
     left: 0;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     z-index: 1000; /* Ensure navbar stays on top */
 }
 
@@ -175,6 +175,15 @@ body.dark-mode .project-tile {
 body.dark-mode .project-tile:hover {
     background-color: #555;
 }
+
+body.dark-mode .timeline-item {
+    background-color: #000e77;
+}
+
+body.dark-mode .timeline-item:hover {
+    background-color: #555;
+}
+
 
 body.dark-mode .contact-box {
     background-color: rgba(255, 255, 255, 0.1);
