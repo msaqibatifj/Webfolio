@@ -52,6 +52,153 @@ hr {
     border-radius: 5px;
 }
 
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    position: absolute;
+    right: 40px; /* Space from the right side */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.dark-mode-toggle input {
+    display: none; /* Hide the checkbox */
+}
+
+.dark-mode-toggle .slider {
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle .slider::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle .slider img {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    bottom: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.dark-mode-toggle .slider .light-icon {
+    opacity: 1; /* Light icon visible by default */
+    left: 4px;
+}
+
+.dark-mode-toggle .slider .dark-icon {
+    opacity: 0; /* Dark icon hidden by default */
+    right: 5px;
+}
+
+.dark-mode-toggle input:checked + .slider {
+    background-color: #0073e6;
+}
+
+.dark-mode-toggle input:checked + .slider::before {
+    transform: translateY(-50%) translateX(25px); /* Move the slider knob */
+}
+
+.dark-mode-toggle input:checked + .slider .light-icon {
+    opacity: 0; /* Hide light icon in dark mode */
+}
+
+.dark-mode-toggle input:checked + .slider .dark-icon {
+    opacity: 1; /* Show dark icon in dark mode */
+}
+
+/* General Transition for Theme Toggle */
+* {
+    transition: background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle input:checked + .slider {
+    background-color: #0073e6;
+    transition: background-color 0.8s ease;
+}
+
+.dark-mode-toggle input:checked + .slider::before {
+    transform: translateY(-50%) translateX(25px);
+    transition: transform 0.8s ease;
+}
+
+/* Smooth Dark Mode Transitions */
+body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+body.dark-mode #navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode hr {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode #skills,
+body.dark-mode #timeline,
+body.dark-mode #projects {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+}
+
+body.dark-mode .skill-circle {
+    background-color: #333;
+}
+
+body.dark-mode .skill-circle:hover {
+    background-color: #555;
+}
+
+body.dark-mode .project-tile {
+    background-color: #333;
+}
+
+body.dark-mode .project-tile:hover {
+    background-color: #555;
+}
+
+body.dark-mode .contact-box {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .contact-box a {
+    color: #00c6ff;
+    border-color: #00c6ff;
+}
+
+body.dark-mode .contact-box a:hover {
+    background-color: #00c6ff;
+    color: #121212;
+}
+
+body.dark-mode .gallery img {
+    filter: brightness(0.8);
+}
+
+body.dark-mode .modal {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+
 /* Welcome Section */
 #welcome-section {
     padding: 100px 20px;

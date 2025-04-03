@@ -20,6 +20,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(welcomeSection);
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const darkModeCheckbox = document.querySelector("#dark-mode-checkbox");
+    const body = document.body;
+
+    // Load dark mode preference from localStorage
+    if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+        darkModeCheckbox.checked = true;
+    }
+
+    // Toggle dark mode
+    darkModeCheckbox.addEventListener("change", () => {
+        if (darkModeCheckbox.checked) {
+            body.classList.add("dark-mode");
+            localStorage.setItem("darkMode", "enabled");
+        } else {
+            body.classList.remove("dark-mode");
+            localStorage.setItem("darkMode", "disabled");
+        }
+    });
+});
 function showImage(index) {
     modal.style.display = "flex";
     modalImg.src = images[index].src;
