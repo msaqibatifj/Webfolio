@@ -26,17 +26,20 @@ hr {
 
 /* Navbar */
 #navbar {
-    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent navbar */
-    padding: 15px;
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Gradient opacity */
+    z-index: 1000;
+    padding: 15px 20px;
     display: flex;
-    justify-content: left;
-    z-index: 1000; /* Ensure navbar stays on top */
+    justify-content: flex-start; /* Align links to the left */
+    align-items: center; /* Vertically center items */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition for movement and opacity */
 }
 
+/* Navbar Links */
 #navbar a {
     color: white;
     text-decoration: none;
@@ -44,18 +47,31 @@ hr {
     font-weight: bold;
     margin: 0 15px;
     padding: 10px 15px;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.3s ease;
 }
 
+
 #navbar a:hover {
-    background-color: #555;
+    background-color: rgba(255, 255, 255, 0.2); /* Slight hover effect */
     border-radius: 5px;
+}
+
+/* Navbar Hidden State (for downward transition) */
+#navbar.hidden {
+    transform: translateY(-100%); /* Move navbar upwards out of view */
+    opacity: 0; /* Gradually fade out */
+}
+
+/* Navbar Visible State */
+#navbar.visible {
+    transform: translateY(0); /* Move navbar back into view */
+    opacity: 1; /* Fully visible */
 }
 
 /* Dark Mode Toggle */
 .dark-mode-toggle {
     position: absolute;
-    right: 40px; /* Space from the right side */
+    right: 60px; /* Space from the right side */
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -146,7 +162,7 @@ body.dark-mode {
 }
 
 body.dark-mode #navbar {
-    background-color: rgba(0, 0, 0, 0.8);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)); /* Gradient opacity */
 }
 
 body.dark-mode hr {

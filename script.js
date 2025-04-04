@@ -41,6 +41,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.querySelector("#navbar");
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > lastScrollY) {
+            // User is scrolling down, hide the navbar
+            navbar.classList.add("hidden");
+            navbar.classList.remove("visible");
+        } else {
+            // User is scrolling up, show the navbar
+            navbar.classList.add("visible");
+            navbar.classList.remove("hidden");
+        }
+        lastScrollY = window.scrollY;
+    });
+});
 function showImage(index) {
     modal.style.display = "flex";
     modalImg.src = images[index].src;
